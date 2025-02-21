@@ -5,7 +5,7 @@ import React, { useRef, useCallback } from "react";
 import Header from "@/components/header";
 import { gsap } from "gsap";
 
-const SelectionScreen = ({ onSelect = (selected) => console.log(selected) }) => {
+const SelectionScreen = () => {
   const diamondRefs = useRef(Array(4).fill(null));
 
   const handleHover = useCallback((index) => {
@@ -27,8 +27,10 @@ const SelectionScreen = ({ onSelect = (selected) => console.log(selected) }) => 
   }, []);
 
   const handleSelection = useCallback((selectionType) => {
-    onSelect(selectionType);
-  }, [onSelect]);
+    // Handle selection logic here
+    console.log("Selected:", selectionType);
+    // If you need to navigate or update state, do it here
+  }, []);
 
   return (
     <>
@@ -44,7 +46,6 @@ const SelectionScreen = ({ onSelect = (selected) => console.log(selected) }) => 
 
       <div className="h-screen flex flex-col items-center justify-center bg-white text-black">
         <div className="relative">
-          {/* Diamond Layers - Now matches number of interactive elements */}
           <div className="absolute inset-0 flex items-center justify-center">
             {[400, 430, 450, 470].map((size, i) => (
               <div
@@ -56,7 +57,6 @@ const SelectionScreen = ({ onSelect = (selected) => console.log(selected) }) => 
             ))}
           </div>
 
-          {/* Diamond Grid */}
           <div className="relative z-10 grid grid-cols-3 grid-rows-3 gap-[1px]">
             {[
               { position: 1, label: "Demographics", link: "/final" },
@@ -99,7 +99,6 @@ const SelectionScreen = ({ onSelect = (selected) => console.log(selected) }) => 
           </div>
         </div>
 
-        {/* Bottom Navigation */}
         <div className="absolute bottom-8 w-full flex justify-between px-8">
           <Link href="/result">
             <div className="relative w-12 h-12 flex items-center justify-center border border-black rotate-45 cursor-pointer">
