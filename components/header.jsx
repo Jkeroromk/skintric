@@ -10,7 +10,7 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-row h-[64px] w-full justify-between py-3">
+    <div className="flex flex-row h-[64px] w-full justify-between py-3 mb-3">
       <div className="flex flex-row pt-1 scale-75">
         <Button
           className="font-bold text-xs mr-2"

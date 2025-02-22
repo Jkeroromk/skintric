@@ -123,7 +123,7 @@ const Testing = () => {
         {/* Process Button */}
         {submitted && (
           <div className="absolute bottom-10 right-8 flex items-center gap-1">
-            <div className="relative w-14 h-14 right-4 flex items-center justify-center border border-black rotate-45 scale-[0.85]">
+            <div className="relative w-12 h-12 right-4 flex items-center justify-center border border-black rotate-45 scale-[0.85]">
               <span className="absolute rotate-[-45deg] text-xs font-semibold">
                 Process
               </span>

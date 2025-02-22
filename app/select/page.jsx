@@ -44,7 +44,7 @@ const SelectionScreen = () => {
         </p>
       </div>
 
-      <div className="h-screen flex flex-col items-center justify-center bg-white text-black">
+      <div className="h-[80dvh] flex flex-col items-center justify-center bg-white text-black">
         <div className="relative">
           <div className="absolute inset-0 flex items-center justify-center">
             {[400, 430, 450, 470].map((size, i) => (

@@ -139,79 +139,85 @@ const Result = () => {
   return (
     <>
       <Headers />
-      <div className="min-h-screen flex flex-col bg-white relative pt-[64px]">
+      <div className="min-h-screen flex flex-col bg-white relative md:pt-[64px]">
         {isLoading && <LoadingOverlay />}
-        <div className="absolute top-2 left-8 text-left">
-          <p className="text-black font-semibold text-sm">TO START ANALYSIS</p>
+        
+        {/* Instruction Text */}
+        <div className="absolute top-2 left-9 md:left-8 text-left">
+          <p className="text-black font-semibold text-xs md:text-sm">TO START ANALYSIS</p>
         </div>
 
-        <div className="flex flex-1 items-center justify-center relative mb-60">
+        {/* Main Content Container */}
+        <div className="flex-1 flex flex-col md:flex-row items-center justify-center relative mb-32 md:mb-60 space-y-16 md:space-y-0">
+          {/* Camera Section */}
           <div
-            className="absolute left-[40%] -translate-x-full flex flex-col items-center cursor-pointer"
+            className="relative md:absolute md:left-[40%] md:-translate-x-full flex flex-col items-center cursor-pointer"
             onClick={handleCameraAccess}
           >
+            {/* Diamond Components */}
             <Diamond
               ref={outerDiamondRefCamera}
-              className="w-[300px] h-[300px] rotate-45 border-gray-800"
-              dotted
-              borderColorClass="border-gray-800"
+              className="w-[160px] h-[160px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
+              dotted borderColorClass="border-gray-800"
             />
             <Diamond
               ref={midDiamondRefCamera}
-              className="w-[290px] h-[290px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted
-              borderColorClass="border-gray-800"
+              className="w-[150px] h-[150px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+              dotted borderColorClass="border-gray-800"
             />
             <Diamond
               ref={innerDiamondRefCamera}
-              className="w-[280px] h-[280px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted
-              borderColorClass="border-gray-800"
+              className="w-[140px] h-[140px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+              dotted borderColorClass="border-gray-800"
             />
+            
+            {/* Camera Icon and Label */}
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <Camera className="w-12 h-12" />
-              <div className="absolute top-[50%] right-[-90px] translate-y-[-20px]">
-                <div className="w-[80px] h-[1px] bg-black"></div>
-                <p className="text-[10px] font-semibold mt-1">
+              <Camera className="w-8 h-8 md:w-12 md:h-12" />
+              <div className="absolute top-[55%] right-[-60px] md:right-[-90px] translate-y-[-20px]">
+                <div className="w-[50px] md:w-[80px] h-px bg-black" />
+                <p className="text-[8px] md:text-[10px] font-semibold mt-1 leading-tight">
                   ALLOW A.I.<br />TO SCAN YOUR FACE
                 </p>
               </div>
             </div>
           </div>
 
+          {/* Gallery Section */}
           <div
-            className="absolute left-[60%] flex flex-col items-center cursor-pointer"
+            className="relative md:absolute md:left-[60%] flex flex-col items-center cursor-pointer mt-12 md:mt-0"
             onClick={handleGalleryUpload}
           >
+            {/* Diamond Components */}
             <Diamond
               ref={outerDiamondRefGallery}
-              className="w-[300px] h-[300px] rotate-45 border-gray-800"
-              dotted
-              borderColorClass="border-gray-800"
+              className="w-[160px] h-[160px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
+              dotted borderColorClass="border-gray-800"
             />
             <Diamond
               ref={midDiamondRefGallery}
-              className="w-[290px] h-[290px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted
-              borderColorClass="border-gray-800"
+              className="w-[150px] h-[150px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+              dotted borderColorClass="border-gray-800"
             />
             <Diamond
               ref={innerDiamondRefGallery}
-              className="w-[280px] h-[280px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted
-              borderColorClass="border-gray-800"
+              className="w-[140px] h-[140px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+              dotted borderColorClass="border-gray-800"
             />
+            
+            {/* Gallery Icon and Label */}
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <ImageIcon className="w-12 h-12" />
-              <div className="absolute top-[50%] left-[-90px] translate-y-[20px]">
-                <div className="w-[80px] h-[1px] bg-black"></div>
-                <p className="text-[10px] font-semibold mt-1">
+              <ImageIcon className="w-8 h-8 md:w-12 md:h-12" />
+              <div className="absolute top-[55%] left-[-60px] md:left-[-90px] translate-y-[20px]">
+                <div className="w-[50px] md:w-[80px] h-px bg-black" />
+                <p className="text-[8px] md:text-[10px] font-semibold mt-1 leading-tight">
                   ALLOW A.I.<br />ACCESS GALLERY
                 </p>
               </div>
             </div>
           </div>
 
+          {/* Hidden File Input */}
           <input
             type="file"
             accept="image/*"
@@ -221,37 +227,38 @@ const Result = () => {
           />
         </div>
 
+        {/* Preview Image Section */}
         {previewImage && (
-          <>
-            <h1 className="absolute top-0 right-8 w-32 h-32 text-sm font-extrabold">
-              Preview
-            </h1>
-            <div className="absolute top-6 right-8 w-32 h-32 border rounded overflow-hidden">
+          <div className="absolute top-4 right-4 md:top-0 md:right-8">
+            <h1 className="text-xs md:text-sm font-extrabold mb-1">Preview</h1>
+            <div className="w-24 h-24 md:w-32 md:h-32 border rounded overflow-hidden">
               <img
                 src={previewImage}
                 alt="Preview"
                 className="object-cover w-full h-full"
               />
             </div>
-          </>
+          </div>
         )}
 
-        <div className="absolute bottom-24 left-8 flex items-center gap-1">
-          <div className="relative w-14 h-14 flex items-center justify-center border border-black rotate-45">
+        {/* Navigation Buttons */}
+        <div className="absolute bottom-48 md:bottom-28  left-6 md:left-8">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-black rotate-45">
             <span className="absolute rotate-[-45deg] text-xs font-semibold">
               BACK
             </span>
+            <Link href="/" className="absolute inset-0" aria-label="Back" />
           </div>
-          <Link href="/" className="absolute inset-0" aria-label="Back" />
         </div>
 
+        {/* Process Button */}
         {previewImage && (
-          <div
-            className="absolute bottom-24 right-8 flex items-center gap-1 scale-[0.75] cursor-pointer"
-            onClick={handleProcessImage}
-          >
-            <div className="relative w-14 h-14 flex items-center justify-center border border-black rotate-45">
-              <span className="absolute rotate-[-45deg] text-xs font-semibold">
+          <div className="absolute bottom-48 md:bottom-28  right-6 md:right-8">
+            <div 
+              className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-black rotate-45 cursor-pointer "
+              onClick={handleProcessImage}
+            >
+              <span className="absolute rotate-[-45deg] text-xs scale-[0.7] md:scale-[0.8] font-semibold">
                 PROCESS
               </span>
             </div>
