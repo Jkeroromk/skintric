@@ -51,9 +51,9 @@ const Hero = () => {
                 block transition-transform duration-700 ease-in-out
                 ${
                   hoveredDiamond === "left"
-                    ? "translate-x-[6vw]"
+                    ? "translate-x-[6rem]"
                     : hoveredDiamond === "right"
-                    ? "-translate-x-[6vw]"
+                    ? "-translate-x-[6rem]"
                     : "translate-x-0"
                 }
               `}
