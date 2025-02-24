@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Diamond from "@/components/diamond";
-import Headers from "@/components/header";
 import { db } from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import {
@@ -73,7 +71,6 @@ const Testing = () => {
 
   return (
     <ToastProvider>
-      <Headers />
       <div className="min-h-screen flex flex-col items-center justify-center bg-white text-center">
         {/* Top Left Text */}
         <div className="absolute top-16 left-9 text-left">

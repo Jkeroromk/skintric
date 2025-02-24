@@ -34,8 +34,6 @@ const FinalPage = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      <Header />
-
       <main className="flex-1 w-full bg-white md:overflow-hidden overflow-auto">
         <div className="h-full max-w-6xl mx-auto px-4 md:px-8 flex flex-col">
           {/* Header Section */}
@@ -161,7 +159,7 @@ const FinalPage = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="border-t pt-4 pb-6 bg-white sticky bottom-20 md:static md:bottom-0 mb-8 md:mb-0">
+          <div className="border-t pt-4 pb-6 bg-white sticky bottom-20 md:static md:bottom-0 mb-8 md:mb-16">
             <div className="flex justify-between max-w-6xl mx-auto px-4 md:px-8">
               <Link
                 href="/select"

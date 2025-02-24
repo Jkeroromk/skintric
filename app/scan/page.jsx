@@ -4,7 +4,13 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Camera, Diamond } from "lucide-react";
 import Header from "@/components/header";
-import { ToastProvider, Toast, ToastTitle, ToastDescription, ToastViewport } from "@/components/ui/toast";
+import {
+  ToastProvider,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastViewport,
+} from "@/components/ui/toast";
 import Compressor from "compressorjs";
 
 const Scan = () => {
@@ -17,30 +23,38 @@ const Scan = () => {
     countdown: 3,
     isCapturing: false,
     flashActive: false,
-    isLoading: false
+    isLoading: false,
   });
 
   // Cleanup video stream on unmount
   useEffect(() => {
     return () => {
       if (state.videoStream) {
-        state.videoStream.getTracks().forEach(track => track.stop());
+        state.videoStream.getTracks().forEach((track) => track.stop());
       }
     };
   }, [state.videoStream]);
 
-  // Handle camera permission changes
   useEffect(() => {
     const handlePermissionChange = async () => {
       if (state.hasPermission === false) {
         router.push("/");
       } else if (state.hasPermission === true) {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-          setState(prev => ({ ...prev, videoStream: stream }));
-          if (videoRef.current) videoRef.current.srcObject = stream;
-        } catch (error) {
-          handleCameraError(error);
+        if (
+          typeof navigator !== "undefined" &&
+          navigator.mediaDevices?.getUserMedia
+        ) {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+              video: true,
+            });
+            setState((prev) => ({ ...prev, videoStream: stream }));
+            if (videoRef.current) videoRef.current.srcObject = stream;
+          } catch (error) {
+            handleCameraError(error);
+          }
+        } else {
+          alert("Camera API is not supported in this browser or environment.");
         }
       }
     };
@@ -60,53 +74,53 @@ const Scan = () => {
       NotReadableError: "Camera is already in use by another application.",
       NotAllowedError: "Camera access was denied.",
       OverconstrainedError: "No camera device meets the specified constraints.",
-      default: "An unknown error occurred while accessing the camera."
+      default: "An unknown error occurred while accessing the camera.",
     };
     alert(messages[error.name] || messages.default);
   };
 
   const handleCaptureImage = useCallback(() => {
-    setState(prev => ({ ...prev, flashActive: true }));
+    setState((prev) => ({ ...prev, flashActive: true }));
 
     const canvas = document.createElement("canvas");
     canvas.width = videoRef.current.videoWidth;
     canvas.height = videoRef.current.videoHeight;
-    
+
     const ctx = canvas.getContext("2d");
     ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
 
-    canvas.toBlob(blob => {
+    canvas.toBlob((blob) => {
       new Compressor(blob, {
         quality: 0.6,
         maxWidth: 800,
         maxHeight: 800,
-        success: compressedBlob => {
+        success: (compressedBlob) => {
           const reader = new FileReader();
           reader.onload = () => {
             localStorage.setItem("capturedImage", reader.result);
-            setState(prev => ({
+            setState((prev) => ({
               ...prev,
               flashActive: false,
               isLoading: false,
               toast: {
                 title: "Capture Successful",
                 description: "Your face has been captured successfully!",
-                variant: "default"
-              }
+                variant: "default",
+              },
             }));
             setTimeout(() => router.push("/result"), 2000);
           };
           reader.readAsDataURL(compressedBlob);
         },
-        error: err => console.error("Compression error:", err)
+        error: (err) => console.error("Compression error:", err),
       });
     }, "image/png");
   }, [router]);
 
   const startCountdown = useCallback(() => {
-    setState(prev => ({ ...prev, isCapturing: true, countdown: 3 }));
+    setState((prev) => ({ ...prev, isCapturing: true, countdown: 3 }));
     const interval = setInterval(() => {
-      setState(prev => {
+      setState((prev) => {
         if (prev.countdown === 1) {
           clearInterval(interval);
           return { ...prev, countdown: 0 };
@@ -121,10 +135,18 @@ const Scan = () => {
       <h1 className="text-2xl font-semibold">Allow Camera Access</h1>
       <p className="mt-4 text-sm">Please allow the camera to scan your face.</p>
       <div className="flex gap-4 mt-6 justify-center">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-md" onClick={() => setState(prev => ({ ...prev, hasPermission: true }))}>
+        <button
+          className="px-4 py-2 bg-blue-500 text-white rounded-md"
+          onClick={() => setState((prev) => ({ ...prev, hasPermission: true }))}
+        >
           Allow
         </button>
-        <button className="px-4 py-2 bg-gray-500 text-white rounded-md" onClick={() => setState(prev => ({ ...prev, hasPermission: false }))}>
+        <button
+          className="px-4 py-2 bg-gray-500 text-white rounded-md"
+          onClick={() =>
+            setState((prev) => ({ ...prev, hasPermission: false }))
+          }
+        >
           Deny
         </button>
       </div>
@@ -133,9 +155,13 @@ const Scan = () => {
 
   const renderCameraInterface = () => (
     <div className="relative w-full h-screen">
-      <video ref={videoRef} autoPlay playsInline className="absolute top-0 left-0 w-full h-full object-cover transform scale-x-[-1]" />
-      <Header className="text-white" />
-      
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover transform scale-x-[-1]"
+      />
+
       <button
         className="absolute right-6 top-1/2 flex items-center justify-center w-16 h-16 bg-white text-green-500 rounded-full shadow-lg"
         onClick={startCountdown}
@@ -153,16 +179,18 @@ const Scan = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50 animate-flash" />
       )}
 
-      <div className="absolute flex flex-col bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute flex flex-col bottom-0 left-1/2 transform -translate-x-1/2 z-10">
         <div className="text-white flex flex-col text-center">
           <p>To get better results make sure to have</p>
           <div className="flex w-full mt-5 text-sm uppercase mb-10">
-            {["Neutral Expression", "Frontal Pose", "Adequate Lighting"].map((text) => (
-              <div key={text} className="flex mr-4">
-                <Diamond size={18} className="mt-[2px]" />
-                <p className="px-2">{text}</p>
-              </div>
-            ))}
+            {["Neutral Expression", "Frontal Pose", "Adequate Lighting"].map(
+              (text) => (
+                <div key={text} className="flex mr-4">
+                  <Diamond size={18} className="mt-[2px]" />
+                  <p className="px-2">{text}</p>
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>

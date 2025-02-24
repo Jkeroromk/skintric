@@ -34,7 +34,6 @@ const SelectionScreen = () => {
 
   return (
     <>
-      <Header />
       <div className="absolute top-10 left-8 text-left mt-5">
         <h1 className="text-normal font-bold">A.I. ANALYSIS</h1>
         <p className="text-xs mt-1 text-muted-foreground">

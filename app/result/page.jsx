@@ -4,7 +4,6 @@ import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { Camera, Image as ImageIcon } from "lucide-react";
 import Diamond from "@/components/diamond";
-import Headers from "@/components/header";
 import { useRouter } from "next/navigation";
 import { gsap } from "gsap";
 
@@ -138,7 +137,6 @@ const Result = () => {
 
   return (
     <>
-      <Headers />
       <div className="min-h-screen flex flex-col bg-white relative md:pt-[64px]">
         {isLoading && <LoadingOverlay />}
         
