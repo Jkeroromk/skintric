@@ -179,10 +179,10 @@ const Scan = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50 animate-flash" />
       )}
 
-      <div className="absolute flex flex-col bottom-0 left-1/2 transform -translate-x-1/2 z-10">
+      <div className="absolute flex flex-col bottom-24 md:bottom-0 left-1/2 transform -translate-x-1/2 z-10">
         <div className="text-white flex flex-col text-center">
           <p>To get better results make sure to have</p>
-          <div className="flex w-full mt-5 text-sm uppercase mb-10">
+          <div className="flex w-full mt-5 uppercase mb-10 text-xs md:text-sm">
             {["Neutral Expression", "Frontal Pose", "Adequate Lighting"].map(
               (text) => (
                 <div key={text} className="flex mr-4">
