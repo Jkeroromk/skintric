@@ -155,17 +155,17 @@ const Result = () => {
   {/* Diamond Components */}
   <Diamond
     ref={outerDiamondRefCamera}
-    className="w-[120px] h-[120px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
+    className="!w-[120px] !h-[120px] md:!w-[300px] md:!h-[300px] rotate-45 border-gray-800"
     dotted borderColorClass="border-gray-800"
   />
   <Diamond
     ref={midDiamondRefCamera}
-    className="w-[110px] h-[110px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    className="!w-[110px] !h-[110px] md:!w-[290px] md:!h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
     dotted borderColorClass="border-gray-800"
   />
   <Diamond
     ref={innerDiamondRefCamera}
-    className="w-[100px] h-[100px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    className="!w-[100px] !h-[100px] md:!w-[280px] md:!h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
     dotted borderColorClass="border-gray-800"
   />
   
@@ -189,17 +189,17 @@ const Result = () => {
   {/* Diamond Components */}
   <Diamond
     ref={outerDiamondRefGallery}
-    className="w-[120px] h-[120px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
+    className="!w-[120px] !h-[120px] md:!w-[300px] md:!h-[300px] rotate-45 border-gray-800"
     dotted borderColorClass="border-gray-800"
   />
   <Diamond
     ref={midDiamondRefGallery}
-    className="w-[110px] h-[110px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    className="!w-[110px] !h-[110px] md:!w-[290px] md:!h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
     dotted borderColorClass="border-gray-800"
   />
   <Diamond
     ref={innerDiamondRefGallery}
-    className="w-[100px] h-[100px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    className="!w-[100px] !h-[100px] md:!w-[280px] md:!h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
     dotted borderColorClass="border-gray-800"
   />
   
@@ -238,10 +238,9 @@ const Result = () => {
             </div>
           </div>
         )}
-
         {/* Navigation Buttons */}
-        <div className="absolute bottom-48 md:bottom-28  left-6 md:left-8">
-          <div className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-black rotate-45">
+        <div className="absolute bottom-48 md:!bottom-28  left-6 md:left-8">
+          <div className="relative w-10 h-10 md:!w-12 md:h-12 flex items-center justify-center border border-black rotate-45">
             <span className="absolute rotate-[-45deg] text-xs font-semibold">
               BACK
             </span>
