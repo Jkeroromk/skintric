@@ -148,72 +148,72 @@ const Result = () => {
         {/* Main Content Container */}
         <div className="flex-1 flex flex-col md:flex-row items-center justify-center relative mb-32 md:mb-60 space-y-16 md:space-y-0">
           {/* Camera Section */}
-          <div
-            className="relative md:absolute md:left-[40%] md:-translate-x-full flex flex-col items-center cursor-pointer"
-            onClick={handleCameraAccess}
-          >
-            {/* Diamond Components */}
-            <Diamond
-              ref={outerDiamondRefCamera}
-              className="w-[160px] h-[160px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
-              dotted borderColorClass="border-gray-800"
-            />
-            <Diamond
-              ref={midDiamondRefCamera}
-              className="w-[150px] h-[150px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted borderColorClass="border-gray-800"
-            />
-            <Diamond
-              ref={innerDiamondRefCamera}
-              className="w-[140px] h-[140px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted borderColorClass="border-gray-800"
-            />
-            
-            {/* Camera Icon and Label */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <Camera className="w-8 h-8 md:w-12 md:h-12" />
-              <div className="absolute top-[55%] right-[-60px] md:right-[-90px] translate-y-[-20px]">
-                <div className="w-[50px] md:w-[80px] h-px bg-black" />
-                <p className="text-[8px] md:text-[10px] font-semibold mt-1 leading-tight">
-                  ALLOW A.I.<br />TO SCAN YOUR FACE
-                </p>
-              </div>
-            </div>
-          </div>
+<div
+  className="relative md:absolute md:left-[40%] md:-translate-x-full flex flex-col items-center cursor-pointer"
+  onClick={handleCameraAccess}
+>
+  {/* Diamond Components */}
+  <Diamond
+    ref={outerDiamondRefCamera}
+    className="w-[120px] h-[120px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
+    dotted borderColorClass="border-gray-800"
+  />
+  <Diamond
+    ref={midDiamondRefCamera}
+    className="w-[110px] h-[110px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    dotted borderColorClass="border-gray-800"
+  />
+  <Diamond
+    ref={innerDiamondRefCamera}
+    className="w-[100px] h-[100px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    dotted borderColorClass="border-gray-800"
+  />
+  
+  {/* Camera Icon and Label */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center">
+    <Camera className="w-6 h-6 md:w-12 md:h-12" />
+    <div className="absolute top-[55%] right-[-40px] md:right-[-90px] translate-y-[-20px]">
+      <div className="w-[40px] md:w-[80px] h-px bg-black" />
+      <p className="text-[7px] md:text-[10px] font-semibold mt-1 leading-tight">
+        ALLOW A.I.<br />TO SCAN YOUR FACE
+      </p>
+    </div>
+  </div>
+</div>
 
-          {/* Gallery Section */}
-          <div
-            className="relative md:absolute md:left-[60%] flex flex-col items-center cursor-pointer mt-12 md:mt-0"
-            onClick={handleGalleryUpload}
-          >
-            {/* Diamond Components */}
-            <Diamond
-              ref={outerDiamondRefGallery}
-              className="w-[160px] h-[160px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
-              dotted borderColorClass="border-gray-800"
-            />
-            <Diamond
-              ref={midDiamondRefGallery}
-              className="w-[150px] h-[150px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted borderColorClass="border-gray-800"
-            />
-            <Diamond
-              ref={innerDiamondRefGallery}
-              className="w-[140px] h-[140px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
-              dotted borderColorClass="border-gray-800"
-            />
-            
-            {/* Gallery Icon and Label */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <ImageIcon className="w-8 h-8 md:w-12 md:h-12" />
-              <div className="absolute top-[55%] left-[-60px] md:left-[-90px] translate-y-[20px]">
-                <div className="w-[50px] md:w-[80px] h-px bg-black" />
-                <p className="text-[8px] md:text-[10px] font-semibold mt-1 leading-tight">
-                  ALLOW A.I.<br />ACCESS GALLERY
-                </p>
-              </div>
-            </div>
-          </div>
+{/* Gallery Section */}
+<div
+  className="relative md:absolute md:left-[60%] flex flex-col items-center cursor-pointer mt-12 md:mt-0"
+  onClick={handleGalleryUpload}
+>
+  {/* Diamond Components */}
+  <Diamond
+    ref={outerDiamondRefGallery}
+    className="w-[120px] h-[120px] md:w-[300px] md:h-[300px] rotate-45 border-gray-800"
+    dotted borderColorClass="border-gray-800"
+  />
+  <Diamond
+    ref={midDiamondRefGallery}
+    className="w-[110px] h-[110px] md:w-[290px] md:h-[290px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    dotted borderColorClass="border-gray-800"
+  />
+  <Diamond
+    ref={innerDiamondRefGallery}
+    className="w-[100px] h-[100px] md:w-[280px] md:h-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-45 border-gray-800"
+    dotted borderColorClass="border-gray-800"
+  />
+  
+  {/* Gallery Icon and Label */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center">
+    <ImageIcon className="w-6 h-6 md:w-12 md:h-12" />
+    <div className="absolute top-[55%] left-[-40px] md:left-[-90px] translate-y-[20px]">
+      <div className="w-[40px] md:w-[80px] h-px bg-black" />
+      <p className="text-[7px] md:text-[10px] font-semibold mt-1 leading-tight">
+        ALLOW A.I.<br />ACCESS GALLERY
+      </p>
+    </div>
+  </div>
+</div>
 
           {/* Hidden File Input */}
           <input

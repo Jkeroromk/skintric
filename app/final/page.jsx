@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Header from "@/components/header";
-
 const FinalPage = () => {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [activeSection, setActiveSection] = useState("race");
@@ -33,11 +31,11 @@ const FinalPage = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col md:mt-28">
       <main className="flex-1 w-full bg-white md:overflow-hidden overflow-auto">
         <div className="h-full max-w-6xl mx-auto px-4 md:px-8 flex flex-col">
           {/* Header Section */}
-          <div className="text-start mb-4 md:mb-6">
+          <div className="text-start ml-4 mb-4 md:mb-6 md:ml-0">
             <h2 className="text-lg md:text-xl font-bold mb-1">A.I. ANALYSIS</h2>
             <h3 className="text-4xl md:text-6xl font-normal leading-tight">
               DEMOGRAPHICS
@@ -46,7 +44,7 @@ const FinalPage = () => {
           </div>
 
           {/* Main Content Grid */}
-          <div className="flex-1 grid md:grid-cols-[3fr_7fr_5fr] gap-4 md:gap-6 pb-16 md:pb-0">
+          <div className="grid md:grid-cols-[3fr_7fr_5fr] gap-4 mt-10 mb-40 md:gap-6 pb-0 md:pb-0 md:mb-0">
             {/* Selection Column */}
             <div className="bg-gray-100 p-4 rounded-lg space-y-4">
               {["race", "age", "gender"].map((section) => (
@@ -159,7 +157,7 @@ const FinalPage = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="border-t pt-4 pb-6 bg-white sticky bottom-20 md:static md:bottom-0 mb-8 md:mb-16">
+          <div className="border-t pt-4 pb-6 bg-white sticky bottom-40 md:static md:bottom-0 mb-8 md:mb-16">
             <div className="flex justify-between max-w-6xl mx-auto px-4 md:px-8">
               <Link
                 href="/select"
